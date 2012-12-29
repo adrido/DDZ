@@ -1,6 +1,6 @@
 <?php include_once("inc/funktionen.php"); 
 @session_start();
-
+/*includieren von der eigentlichen seite*/
 switch(@$_GET['seite']) {
                              case "anmelden":   include("inc/reg.php");break;
                              case "logout":     include("inc/logout.php"); break;
