@@ -1,0 +1,257 @@
+         body{
+                 background-image:url(../bilder/Background.jpg);
+                 background-repeat:no-repeat;
+                 background-position: center top;
+                 background-color:#000000;
+              }
+
+         #fadeshow1{
+                 margin: 0 0 8px 0;
+                 padding: 0 0 0 0;
+                 }
+         #website{
+                 position:absolute;
+                 width:1029px;
+                 left:50%;
+                 top:50px;
+                 margin-left:-514.5px;/*hae ? seit wann kann ein bildschirm ein halbes pixel anzeigen? */
+                 padding-left: 25px;
+              }
+
+         #flash{
+                 margin: 0 0 0 0;
+                 padding: 0 0px 0px 10px;
+              }
+
+         #head{
+                 padding: 0 0 0 25px;
+                 height:209px;
+                 width:980px;
+                 background-image:url(../bilder/Header.jpg);/*gorsss und kleinschreibung beachten!*/
+                 background-repeat:no-repeat;
+               }
+
+         #navi{
+                 font-size:13px;
+                 clear: left;
+                 width:980px;
+                 min-height:65px;
+                 color:#ffffff;
+                 background-image:url(../bilder/Navi.jpg);/*gorsss und kleinschreibung beachten!*/
+               }
+
+         #end{
+                 position:relative;
+                 width:1029px;
+                 height:104px;
+                 background-image:url(../bilder/Footer.png);/*gorsss und kleinschreibung beachten!*/
+                 background-repeat:no-repeat;
+                 background-position: 50%;
+               }
+
+         #end-credits{
+                 display:inline-block;
+                 position:relative;
+                 margin-top:0px;
+                 width:980px;
+               }
+
+         #Gesamtheadnavi{
+                 min-height:759px;
+                 width:1029px;
+                 padding: 0 0 0 25px;
+                 background-image:url(../bilder/shadow.png);
+                 background-repeat:repeat-y;
+              }
+
+         #Gesamt{
+                 min-height:759px;
+                 width:1029px;
+                 padding: 0 0 0 25px;
+                 /*background-image:url(../bilder/shadow.png);*/
+				 background-image:url(../bilder/hintergrund_text.png);
+                 background-repeat:repeat-y;
+              }
+
+         #sub-navi{
+                 font-family:Arial;
+                 float:left;
+                 height:100%;
+                 width:150px;
+                 background-color:#bbbbbb;
+               }
+
+         #main{
+                 width:750px;
+                 padding: 0px 0px 8px 0px;
+                 margin-left:150px;
+                 margin-top:-16px;
+                 background-color:#ffffff;
+               }
+
+         #main hr{
+                 color:#ffffff;
+               }
+
+         #main td{
+                 font-family:Arial;
+                 line-height:25px;
+                 padding: 0px 20px 0px 10px;
+               }
+
+         .font_1{ /*Groß/Ueberschrift - Blau */
+                 font-family:Arial;
+                 font-size:175%;
+                 color:#3e52ab;
+                 padding: 20px 20px 0px 20px;
+               }
+
+         .font_2{ /*Mittelschrift - Blau */
+                 font-family:Arial;
+                 line-height:25px;
+                 font-size:100%;
+                 font-weight:bold;
+                 color:#5867a7;
+                 padding: 0px 20px 0px 20px;
+               }
+
+         .font_3{ /*Textueberschrift - Schwarz*/
+                 font-family:Arial;
+                 font-size:100%;
+                 font-weight:bold;
+                 color:#000000;
+                 padding: 20px 20px 0px 20px;
+               }
+
+         .font_4{ /*content - Standard*/
+                 font-family:Arial;
+                 line-height:25px;
+                 padding: 0px 20px 0px 20px;
+               }
+
+         .font_5{ /* Text - Abspann*/
+                 font-family:Arial;
+                 font-size:10px;
+                 color:#9b9b9b;
+                 padding: 0px 60px 0px 110px;
+               }
+
+         .font_6{ /* kleine schwarze Schrift*/
+                 font-family:Arial;
+                 font-size:80%;
+                 font-weight:bold;
+                 color:#000000;
+                 padding: 20px 20px 0px 20px;
+               }
+
+         #sub-navi ul{
+                 display:block;
+                 list-style-image:url(../bilder/pfeil.png );
+                 /*list-style:none;*/
+               }
+
+         #main li{
+                 font-family:Arial;
+                 line-height:25px;
+                 padding: 0px 20px 0px 20px;
+
+               }
+
+         #sub-navi a{
+                 display:block;
+                 margin: 0px 0px 0px 0px;
+                 padding: 2px 0px 2px 0px;
+                 color: #333333;
+                 text-decoration:none;
+               }
+
+         #sub-navi a:hover,
+         #sub-navi a:focus,
+         #sub-navi a:active{
+                 text-decoration:underline;
+               }
+
+         #navi a{
+                 text-align:center;
+                 width:163px;
+                 float:left;
+                 font-family:Ringbearer;
+                 display:inline-block;
+                 margin: 8px 0px 0px 0px;
+                 padding: 0px 0px 0px 0px;
+                 font-size:20px;
+                 line-height: 55px;
+                 background-image:url(../bilder/navi-button-normal.png);
+                 background-position: ;
+                 color: #9d9d9d;
+                 text-decoration: none;
+               }
+
+         #navi a:hover{
+                 color:#c8c8c8;
+                 background-image:url(../bilder/navi-button-rollover.png);
+               }
+         #navi a:focus,
+         #navi a:active{
+                 background-image:url(../bilder/navi-button-klick.png);
+               }
+
+         /* Bilder anzeigen*/
+
+         #showpic a{
+                 font-family:Arial;
+                 display:inline-block;
+                 margin: 0px 0px 0px 0px;
+                 padding: 25px 25px 25px 25px;
+                 font-weight: bold;
+                 line-height: 0px;
+                 color: #ffffff;
+                 background:#333333;
+                 text-decoration: none;
+                 border-color:#ffffff;
+                 border-right:1px;
+               }
+
+         #showpic a:hover,
+         #showpic a:focus,
+         #showpic a:active{
+                 text-decoration: overline underline;
+                 color:#ffffff;
+                 background:#222222;
+               }#login 
+			   {
+	
+ /*filter:alpha(opacity=70); /* IE */
+ /*opacity:0.3; /* allgemein */
+ /*-moz-opacity:0.3; /* Mozilla */
+ /*-khtml-opacity:0.3; /* KTHML */
+ /*-opera-opacity:0.3; /* Opera */
+	height: 62px;
+	width: 920px;
+	background-image: url(../bilder/Login_hintergrund.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-left: 30px;
+				}
+#unter_login 
+{
+	height: 22px;
+	width: 920px;
+	background-image: url(../bilder/Login_hintergrund_unten.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-left: 30px;
+}
+#login_tabelle {
+	padding-top: 4px;
+}
+#willkommen {
+	
+	width: 920px;
+	background-image: url(../bilder/Willkommen.png);
+	background-repeat: repeat-y;
+	background-position: center;
+	margin-left: 30px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}

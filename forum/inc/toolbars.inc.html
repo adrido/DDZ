@@ -1,0 +1,101 @@
+<div id="toolbar1" class="toolbar">
+
+      <div id="cut" class="imagebutton"><img title="Ausschneiden" alt="Ausschneiden" src="edit-demo/cut.gif"></div>
+      <div id="copy" class="imagebutton"><img title="Kopieren" alt="Kopieren" src="edit-demo/copy.gif"></div>
+      <div id="paste" class="imagebutton"><img title="Einfügen" alt="Einfügen" src="edit-demo/paste.gif"></div>
+      <div id="undo" class="imagebutton"><img title="Rueckgaengig" alt="Rueckgaengig" src="edit-demo/undo.gif"></div>
+      <div id="redo" class="imagebutton"><img title="Wiederherstellen" alt="Wiederherstellen" src="edit-demo/redo.gif"></div>
+      <div id="createlink" class="imagebutton"><img title="Link Einfügen" alt="Link Einfügen" src="edit-demo/link.gif"></div>
+      <div id="createimage" class="imagebutton" ><img title="Bild Einfügen" alt="Bild Einfügen" src="edit-demo/image.gif"></div>
+      <div id="createtable" class="imagebutton"><img title="Tabelle einfügen" alt="Tabelle einfügen" src="edit-demo/table.gif"></div> 
+	  <div id="createsmily" class="imagebutton"><img width="16" height="16" alt="" src="Bilder/32x32/emotion_smile.png"></div>
+      <br>
+</div>
+<!-- Tabelle Toolbar -->
+ <div class="toolbar" style="display: none;" id="tabelle">
+ <img  src="edit-demo/table.gif" alt="Tabelle einf&uuml;gen" title="Tabelle einf&uuml;gen">
+  <label>Zeilen:<input id="table_row"/></label>
+  <label>Spalten:<input id="table_col"/></label>
+   <button type="button" onclick="editor.createTable();">OK</button>&nbsp;
+   <button type="button" onclick="toggle('tabelle');">Abbrechen</button>
+   <label><input type="checkbox" id="tabelle_anheften"/>Anheften</label>
+ </div>
+ <!-- Bild Toolbar -->
+ <div class="toolbar" style="display: none;" id="bild">
+ <img  src="edit-demo/image.gif" alt="Bild einf&uuml;gen" title="Bild einf&uuml;gen">
+  <label>Adresse zum Bild:<input id="bildaddr" value="http://"/></label>
+   <button type="button" onclick="editor.createImage();">OK</button>&nbsp;
+   <button type="button" onclick="toggle('bild');">Abbrechen</button>
+   <label><input type="checkbox" id="bild_anheften"/>Anheften</label>
+ </div>
+ <!-- Link Toolbar -->
+ <div class="toolbar" style="display: none;" id="link">
+ <img  src="edit-demo/link.gif" alt="Link einf&uuml;gen" title="Link einf&uuml;gen">
+  <label>Adresse<input id="url" value="http://"/></label>
+   <button type="button" onclick="editor.createLink();">OK</button>&nbsp;
+   <button type="button" onclick="toggle('link');">Abbrechen</button>
+   <label><input type="checkbox" id="link_anheften"/>Anheften</label>
+ </div>
+ <!-- Smily Toolbar -->
+ <div class="toolbar" style="display: none;" id="smily">
+ <img  src="edit-demo/table.gif" alt="Tabelle einf&uuml;gen" title="Tabelle einf&uuml;gen">
+   <img src="Bilder/32x32/emotion_evilgrin.png" width="1em" height="1em" alt="" >
+   <img src="Bilder/32x32/emotion_grin.png" width="32" height="32" alt="" >
+   <img src="Bilder/32x32/emotion_happy.png" width="32" height="32" alt="" >
+   <img src="Bilder/32x32/emotion_smile.png" width="32" height="32" alt="" >
+   <img src="Bilder/32x32/emotion_suprised.png" width="32" height="32" alt="" >
+   <img src="Bilder/32x32/emotion_tongue.png" width="32" height="32" alt="" >
+   <img src="Bilder/32x32/emotion_unhappy.png" width="32" height="32" alt="" >
+   <img src="Bilder/32x32/emotion_waii.png" width="32" height="32" alt="" >
+   <img src="Bilder/32x32/emotion_wink.png" width="32" height="32" alt="" >
+   <button type="button" onclick="toggle('smily');">OK</button>&nbsp;
+   <button type="button" onclick="toggle('smily');">Abbrechen</button>
+   <label><input type="checkbox" id="smily_anheften">Anheften</label>
+ </div>
+<div id="toolbar2" class="toolbar">
+      <select onchange="editor.Select(this.id);" id="formatblock">
+	  <option value="" selected="selected">Format</option>
+      <option value="">Normal</option>
+      <option value="&lt;p&gt;">Absatz</option>
+      <option value="&lt;h1&gt;">&Uuml;berschrift 1 </option>
+      <option value="&lt;h2&gt;">&Uuml;berschrift 2 </option>
+      <option value="&lt;h3&gt;">&Uuml;berschrift 3 </option>
+      <option value="&lt;h4&gt;">&Uuml;berschrift 4 </option>
+      <option value="&lt;h5&gt;">&Uuml;berschrift 5 </option>
+      <option value="&lt;h6&gt;">&Uuml;berschrift 6 </option>
+      <option value="&lt;address&gt;">Adresse </option>
+      <option value="&lt;pre&gt;">Code </option>
+      </select>
+
+      <select onchange="editor.Select(this.id);" id="fontname">
+      <option value="Font" selected="selected">Schriftart</option>
+      <option value="Arial">Arial</option>
+      <option value="Courier">Courier</option>
+      <option value="Times New Roman">Times New Roman</option>
+      <option value="RingbearerMedium">Ringbearer</option>
+      </select>
+
+      <select onchange="editor.Select(this.id);" id="fontsize">
+      <option value="Size" selected="selected">Gr&ouml;&szlig;e</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      </select>
+      <div id="bold" class="imagebutton"><img title="Fett" alt="Fett" src="edit-demo/bold.gif"></div>
+      <div id="italic" class="imagebutton"><img title="Kursiv" alt="Kursiv" src="edit-demo/italic.gif"></div>
+      <div id="underline" class="imagebutton"><img title="Unterstrichen" alt="Unterstrichen" src="edit-demo/underline.gif"></div>
+      <div id="forecolor" class="imagebutton"><img title="Schriftfarbe" alt="Schriftfarbe" src="edit-demo/forecolor.gif"></div>
+      <div id="hilitecolor" class="imagebutton"><img title="Hintergrundfarbe" alt="Hintergrundfarbe" src="edit-demo/backcolor.gif"></div>
+      <div id="justifyleft" class="imagebutton"><img title="Linksbuendig" alt="Linksbuendig" src="edit-demo/justifyleft.gif"></div>
+      <div id="justifycenter" class="imagebutton"><img title="Zentriert" alt="Zentriert" src="edit-demo/justifycenter.gif"></div>
+      <div id="justifyright" class="imagebutton"><img title="Rechtsbuendig" alt="Rechtsbuendig" src="edit-demo/justifyright.gif"></div>
+      <div id="insertorderedlist" class="imagebutton"><img title="Nummerierte Liste" alt="Nummerirte Liste" src="edit-demo/orderedlist.gif"></div>
+      <div id="insertunorderedlist" class="imagebutton"><img title="Liste" alt="Liste" src="edit-demo/unorderedlist.gif"></div>
+      <div id="outdent" class="imagebutton"><img title="einzug verkleinern" alt="Einzug verkleinern" src="edit-demo/outdent.gif"></div>
+      <div id="indent" class="imagebutton"><img title="Einzug vergrößern" alt="Einzug vergrößern" src="edit-demo/indent.gif"></div>
+	  <br>
+</div>
