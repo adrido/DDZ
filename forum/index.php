@@ -1,5 +1,8 @@
 <?php include_once("inc/funktionen.php"); 
 @session_start();
+
+$pfad = "Versteckte Seite"; //fals kein pfad gefunden wurde
+
 /*includieren von der eigentlichen seite*/
 switch(@$_GET['seite']) {
                              case "anmelden":   include("inc/reg.php");break;
@@ -14,7 +17,9 @@ switch(@$_GET['seite']) {
                              }
 
 
-
+if(!isset($content)){
+	die("<h1>Kompatibilitätsproblem Bitte melden sie sich beim Administrator</h1>");
+}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
@@ -27,12 +32,12 @@ switch(@$_GET['seite']) {
 
 <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-<script language="javascript">AC_FL_RunContent = 0;</script><!--language ist veraltet!!!!-->
-<script src="../AC_RunActiveContent.js" language="javascript"></script><!--language ist veraltet!!!!-->
+<script language="javascript">AC_FL_RunContent = 0;</script><!--language ist veraltet!!!! staddessen type="text/javascript"verwenden! -->
+<script src="../AC_RunActiveContent.js" language="javascript"></script><!--language ist veraltet!!!! staddessen type="text/javascript"verwenden!-->
 
 <!-- Java Script -Slideshow NEU -->
          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-
+		<!-- Google ist Böse! bitte eine locale version auf dem webserver speichern -->
          <script type="text/javascript" src="../fadeslideshow.js">
 
          /***********************************************
@@ -66,7 +71,9 @@ switch(@$_GET['seite']) {
          </script>
 
 </head>
-<!--ein haufen missbilligter attribute-->
+<!--ein haufen missbilligter attribute
+	Bitte entfernen und das design mit css machen um kompatibilitätsprobleme zu vermeiden!
+	-->
 <body text="#000000"  bgcolor="#000000" link="#0000FF" alink="#FF0000" vlink="#FF0000" onload="runSlideShow()">
 <!--
 	runslideschow produziert einen Fehler:
@@ -85,7 +92,8 @@ switch(@$_GET['seite']) {
                            <!--Im Film verwendete URLs-->
                            <!--Im Film verwendeter Text-->
                            <!-- saved from url=(0013)about:internet -->
-                           <!-- was macht das?  das braucht man doch gar nicht! -->                          
+                           <!-- was macht das?  das braucht man doch gar nicht! -->  
+                           <!-- der folgende script verzögert das laden der Seite! -->                         
                            <script language="javascript">//veraltet!!!!  fehlt type attribut language ist überflüssig!
                                    if (AC_FL_RunContent == 0) {
                                            alert("Diese Seite erfordert die Datei \"AC_RunActiveContent.js\".");
@@ -136,8 +144,8 @@ switch(@$_GET['seite']) {
                   
 				  <!--style="filter:alpha(opacity=10); -moz-opacity: 0.10; opacity: 0.10;"-->
                   <div id="login">
-          
-                <form action="input_text_tabelle.htm" id = "login_tabelle"><!-- hääää?-->
+           Sie Sind Hier: <a href="index.php">Forum</a> > <?php echo $pfad ?>
+                <form action="input_text_tabelle.htm" id = "login_tabelle"><!--action="input_text_tabelle.htm" hääää?-->
                           <table border="0" cellpadding="0" cellspacing="4" align="right">
                             <tr>
                               <td align="left">Vorname:</td>
@@ -152,12 +160,13 @@ switch(@$_GET['seite']) {
                           </table>
                         </form>
                    </div>
-                   <div id="unter_login"></br>
+                   <div id="unter_login"> <a href="index.php?seite=anmelden">Registrieren</a></br>
                    </div>
                    <div id="willkommen"><h3>Herzlich Willkommen im Forum des dritten Zeitalters!</h3>
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy http://www.hqboard.net/content.php?5-hdrhq tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam  At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus </div>
-                  
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy http://www.hqboard.net/content.php?5-hdrhq tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam  At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus 
+</div>
+                  <?php echo $content ?>
                   
             <div id="fadeshow1"> </div>
 

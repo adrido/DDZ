@@ -2,6 +2,9 @@
 
 include("inc/funktionen.php");
 
+$pfad = "Neuen Account Erstellen";
+
+
 if(isset($_POST["new_user"],$_POST["new_passwort"],$_POST["new_passwort2"],$_POST["new_email"])){
 
   $name = htmlentities($_POST[new_user]);
@@ -30,11 +33,10 @@ if(isset($_POST["new_user"],$_POST["new_passwort"],$_POST["new_passwort2"],$_POS
 
 	
 
-	?>
 
-	<h2>Erfolgreich</h2>
+	$content = "<h2>Sie wurden erfolgreich angemeldet</h2>";
 
-	<?php
+
 
 	}
 
@@ -44,9 +46,9 @@ else{
 
 }
 
-?>
 
- 
+//beginn des here docs
+$content = <<<HERE
 
  <form method="post">
 
@@ -79,9 +81,7 @@ else{
 
 
 
+HERE;
+//ende des here docs
 
-
-
-
-
-
+?>
