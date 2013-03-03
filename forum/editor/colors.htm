@@ -1,0 +1,267 @@
+<!doctype html>
+
+<html><head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+<title>Text Color</title>
+
+<script>
+
+function selectColor(color)
+
+{
+
+parent.document.getElementById("edit").contentWindow.document.execCommand(parent.editor.command, false, color);
+
+parent.document.getElementById("colorpalette").style.visibility="hidden";
+
+parent.document.getElementById("edit").focus();
+
+}
+
+
+
+function InitColorPalette() {
+
+  var x;
+
+  if (document.getElementsByTagName)
+
+    x = document.getElementsByTagName('TD');
+
+  else if (document.all)
+
+    x = document.all.tags('TD');
+
+  for (var i=0;i<x.length;i++)
+
+  {
+
+    //x[i].onmouseover = over;
+
+    //x[i].onmouseout = out;
+
+    x[i].onclick = click;
+
+  }
+
+}
+
+
+
+function over()
+
+{
+
+this.style.border='2px dotted white';
+
+}
+
+
+
+function out()
+
+{
+
+this.style.border='2px solid transparent';
+
+}
+
+
+
+function click()
+
+{
+
+  selectColor(this.id);
+
+}
+
+</script>
+
+<style type="text/css">
+
+td{width:20px; height:20px;border:2px solid transparent;}
+
+td:hover {width:20px; height:20px; border:2px dotted white;}
+
+</style>
+
+</head><body onload="InitColorPalette()" style="background-color:rgba(0,0,0,0.5);">
+
+<table border="1" cellpadding="1" cellspacing="1">
+
+<tbody><tr>
+
+	<td id="#FFFFFF" style="background-color:#ffffff" ></td>
+
+	<td id="#FFCCCC" style="background-color:#ffcccc" ></td>
+
+	<td id="#FFCC99" style="background-color:#ffcc99" ></td>
+
+	<td id="#FFFF99" style="background-color:#ffff99" ></td>
+
+	<td id="#FFFFCC" style="background-color:#ffffcc" ></td>
+
+	<td id="#99FF99" style="background-color:#99ff99" ></td>
+
+	<td id="#99FFFF" style="background-color:#99ffff" ></td>
+
+	<td id="#CCFFFF" style="background-color:#ccffff" ></td>
+
+	<td id="#CCCCFF" style="background-color:#ccccff" ></td>
+
+	<td id="#FFCCFF" style="background-color:#ffccff" ></td>
+
+</tr>
+
+<tr>
+
+	<td id="#CCCCCC" style="background-color:#cccccc" ></td>
+
+	<td id="#FF6666" style="background-color:#ff6666" ></td>
+
+	<td id="#FF9966" style="background-color:#ff9966" ></td>
+
+	<td id="#FFFF66" style="background-color:#ffff66" ></td>
+
+	<td id="#FFFF33" style="background-color:#ffff33" ></td>
+
+	<td id="#66FF99" style="background-color:#66ff99" ></td>
+
+	<td id="#33FFFF" style="background-color:#33ffff" ></td>
+
+	<td id="#66FFFF" style="background-color:#66ffff" ></td>
+
+	<td id="#9999FF" style="background-color:#9999ff" ></td>
+
+	<td id="#FF99FF" style="background-color:#ff99ff" ></td>
+
+</tr>
+
+<tr>
+
+	<td id="#C0C0C0" style="background-color:#c0c0c0" ></td>
+
+	<td id="#FF0000" style="background-color:#ff0000" ></td>
+
+	<td id="#FF9900" style="background-color:#ff9900" ></td>
+
+	<td id="#FFCC66" style="background-color:#ffcc66" ></td>
+
+	<td id="#FFFF00" style="background-color:#ffff00" ></td>
+
+	<td id="#33FF33" style="background-color:#33ff33" ></td>
+
+	<td id="#66CCCC" style="background-color:#66cccc" ></td>
+
+	<td id="#33CCFF" style="background-color:#33ccff" ></td>
+
+	<td id="#6666CC" style="background-color:#6666cc" ></td>
+
+	<td id="#CC66CC" style="background-color:#cc66cc" ></td>
+
+</tr>
+
+<tr>
+
+	<td id="#999999" style="background-color:#999999" ></td>
+
+	<td id="#CC0000" style="background-color:#cc0000" ></td>
+
+	<td id="#FF6600" style="background-color:#ff6600" ></td>
+
+	<td id="#FFCC33" style="background-color:#ffcc33" ></td>
+
+	<td id="#FFCC00" style="background-color:#ffcc00" ></td>
+
+	<td id="#33CC00" style="background-color:#33cc00" ></td>
+
+	<td id="#00CCCC" style="background-color:#00cccc" ></td>
+
+	<td id="#3366FF" style="background-color:#3366ff" ></td>
+
+	<td id="#6633FF" style="background-color:#6633ff" ></td>
+
+	<td id="#CC33CC" style="background-color:#cc33cc" ></td>
+
+</tr>
+
+<tr>
+
+	<td id="#666666" style="background-color:#666666" ></td>
+
+	<td id="#990000" style="background-color:#990000" ></td>
+
+	<td id="#CC6600" style="background-color:#cc6600" ></td>
+
+	<td id="#CC9933" style="background-color:#cc9933" ></td>
+
+	<td id="#999900" style="background-color:#999900" ></td>
+
+	<td id="#009900" style="background-color:#009900" ></td>
+
+	<td id="#339999" style="background-color:#339999" ></td>
+
+	<td id="#3333FF" style="background-color:#3333ff" ></td>
+
+	<td id="#6600CC" style="background-color:#6600cc" ></td>
+
+	<td id="#993399" style="background-color:#993399" ></td>
+
+</tr>
+
+<tr>
+
+	<td id="#333333" style="background-color:#333333" ></td>
+
+	<td id="#660000" style="background-color:#660000" ></td>
+
+	<td id="#993300" style="background-color:#993300" ></td>
+
+	<td id="#996633" style="background-color:#996633" ></td>
+
+	<td id="#666600" style="background-color:#666600" ></td>
+
+	<td id="#006600" style="background-color:#006600" ></td>
+
+	<td id="#336666" style="background-color:#336666" ></td>
+
+	<td id="#000099" style="background-color:#000099" ></td>
+
+	<td id="#333399" style="background-color:#333399" ></td>
+
+	<td id="#663366" style="background-color:#663366" ></td>
+
+</tr>
+
+<tr>
+
+	<td id="#000000" style="background-color:#000000" ></td>
+
+	<td id="#330000" style="background-color:#330000" ></td>
+
+	<td id="#663300" style="background-color:#663300" ></td>
+
+	<td id="#663333" style="background-color:#663333" ></td>
+
+	<td id="#333300" style="background-color:#333300" ></td>
+
+	<td id="#003300" style="background-color:#003300" ></td>
+
+	<td id="#003333" style="background-color:#003333" ></td>
+
+	<td id="#000066" style="background-color:#000066" ></td>
+
+	<td id="#330099" style="background-color:#330099" ></td>
+
+	<td id="#330033" style="background-color:#330033" ></td>
+
+</tr>
+
+</tbody></table>
+
+</body></html>

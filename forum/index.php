@@ -49,7 +49,12 @@ if (!isset($content)) {
 		<!--<meta name="editor" content="html-editor phase 5">autsch! bitte einen richtigen editor verwenden der 1. keine solchen sachen reinschreibt. und 2. keine so schlechten vorlagen wie dieße bietet -->
 		<link rel="stylesheet" href="../css/normalize.css" type="text/css">
 		<link rel="stylesheet" href="../css/style.css" type="text/css">
-
+		<script type="text/javascript"src="../js/script.js">			
+		</script>
+		<script type="text/javascript"src="../js/ajax.js">			
+		</script>
+		<script type="text/javascript"src="../js/fenster.js">			
+		</script>
 		<script language="javascript">
 			//language ist veraltet!!!! staddessen type="text/javascript"verwenden!
 			AC_FL_RunContent = 0;

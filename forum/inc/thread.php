@@ -25,11 +25,11 @@ $forum_id_gelesen = mysql_fetch_array($abfrage3);
 $abfrage4 = mysql_query("SELECT name FROM `foren` WHERE id = $forum_id_gelesen[0] LIMIT 0 ,1");
 $forum_name_gelesen = mysql_fetch_array($abfrage4);
 
-$geschlechter = array("Nicht Angegeben", "M�nnlich", "Weiblich");
+$geschlechter = array("Nicht Angegeben", "Männlich", "Weiblich");
 
-$pfad = "<a href=\"index.php\">Foren&uuml;bersicht</a> - ";
-$pfad .= "<a href=\"?seite=unterforum&id=$forum_id_gelesen[0];\"> $forum_name_gelesen[0];</a>&nbsp;-&nbsp;";
-$pfad .= "<a href=\"?seite=thread&id=$_GET[id]; \">$thema_name_gelesen[0];</a>";
+$pfad = "<a href=\"index.php\">Foren&uuml;bersicht</a>";
+$pfad .= "<a href=\"?seite=unterforum&id=$forum_id_gelesen[0]\"> $forum_name_gelesen[0];</a>&nbsp;-&nbsp;";
+$pfad .= "<a href=\"?seite=thread&id=$_GET[id]\">$thema_name_gelesen[0];</a>";
 $content = "";
 
 include ("inc/funktionen.php");
@@ -60,7 +60,7 @@ $abfrage = mysql_query($abfrage);
 while ($row = mysql_fetch_assoc($abfrage)) {
 	$content .=  "
 <div class='beitrag'>
-<div class='datum'>
+<div class='datum'><img src='../bilder/ring.png'></img>
 ";
 
 		$content .= i_datum($row['zeit']);
@@ -87,7 +87,7 @@ while ($row = mysql_fetch_assoc($abfrage)) {
 	$content .= "
 			</td>
 			";
-	$content .= "<td class='eintrag' id='$row[id]'> $row[beitrag]";
+	$content .= "<td><div class='eintrag' id='$row[id]'> $row[beitrag]</div>";
 	$content .= "</td>
 	</tr></tbody>
 	</table>

@@ -19,25 +19,25 @@ $content = "";
     if(isset($sql)){
     mysql_query($sql);
 
-   $content .= "{";
-   $content .= "status:200,statusText:'Erfolgreich'";
-   $content .= "}";    
+   echo "{";
+   echo "status:200,statusText:'Erfolgreich'";
+   echo "}";    
     }
     else{
-   $content .= "{
+   echo "{
     status:500,statusText:'Fehler: sql ist nicht gesetzt'
     }";    
     }
     }
    else{
-   $content .= "{
+   echo "{
     status:500,statusText:'Interner Fehler'
     }";
 
    }
 }
 else {
-   $content .="{
+   echo"{
         status:403,statustext:'du bist nicht eingeloggt!'
     }";
 }

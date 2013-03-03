@@ -289,3 +289,15 @@ table.profileintrag{/*tabelle fuer die trennung von profil und eintrag*/
 	width:100%;
 	
 }
+/*Editor design*/
+
+#editor_footer{
+	background-color:rgba(0, 0, 0, 0.2);
+}
+.toolbar{
+	background-color:rgba(0, 0, 0, 0.2);
+}
+.imagebutton {
+    display: inline;
+    
+}

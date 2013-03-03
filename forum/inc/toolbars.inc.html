@@ -1,19 +1,19 @@
 <div id="toolbar1" class="toolbar">
 
-      <div id="cut" class="imagebutton"><img title="Ausschneiden" alt="Ausschneiden" src="edit-demo/cut.gif"></div>
-      <div id="copy" class="imagebutton"><img title="Kopieren" alt="Kopieren" src="edit-demo/copy.gif"></div>
-      <div id="paste" class="imagebutton"><img title="Einfügen" alt="Einfügen" src="edit-demo/paste.gif"></div>
-      <div id="undo" class="imagebutton"><img title="Rueckgaengig" alt="Rueckgaengig" src="edit-demo/undo.gif"></div>
-      <div id="redo" class="imagebutton"><img title="Wiederherstellen" alt="Wiederherstellen" src="edit-demo/redo.gif"></div>
-      <div id="createlink" class="imagebutton"><img title="Link Einfügen" alt="Link Einfügen" src="edit-demo/link.gif"></div>
-      <div id="createimage" class="imagebutton" ><img title="Bild Einfügen" alt="Bild Einfügen" src="edit-demo/image.gif"></div>
-      <div id="createtable" class="imagebutton"><img title="Tabelle einfügen" alt="Tabelle einfügen" src="edit-demo/table.gif"></div> 
+      <div id="cut" class="imagebutton"><img title="Ausschneiden" alt="Ausschneiden" src="editor/cut.gif"></div>
+      <div id="copy" class="imagebutton"><img title="Kopieren" alt="Kopieren" src="editor/copy.gif"></div>
+      <div id="paste" class="imagebutton"><img title="Einfï¿½gen" alt="Einfï¿½gen" src="editor/paste.gif"></div>
+      <div id="undo" class="imagebutton"><img title="Rueckgaengig" alt="Rueckgaengig" src="editor/undo.gif"></div>
+      <div id="redo" class="imagebutton"><img title="Wiederherstellen" alt="Wiederherstellen" src="editor/redo.gif"></div>
+      <div id="createlink" class="imagebutton"><img title="Link Einfï¿½gen" alt="Link Einfï¿½gen" src="editor/link.gif"></div>
+      <div id="createimage" class="imagebutton" ><img title="Bild Einfï¿½gen" alt="Bild Einfï¿½gen" src="editor/image.gif"></div>
+      <div id="createtable" class="imagebutton"><img title="Tabelle einfï¿½gen" alt="Tabelle einfï¿½gen" src="editor/table.gif"></div> 
 	  <div id="createsmily" class="imagebutton"><img width="16" height="16" alt="" src="Bilder/32x32/emotion_smile.png"></div>
       <br>
 </div>
 <!-- Tabelle Toolbar -->
  <div class="toolbar" style="display: none;" id="tabelle">
- <img  src="edit-demo/table.gif" alt="Tabelle einf&uuml;gen" title="Tabelle einf&uuml;gen">
+ <img  src="editor/table.gif" alt="Tabelle einf&uuml;gen" title="Tabelle einf&uuml;gen">
   <label>Zeilen:<input id="table_row"/></label>
   <label>Spalten:<input id="table_col"/></label>
    <button type="button" onclick="editor.createTable();">OK</button>&nbsp;
@@ -22,7 +22,7 @@
  </div>
  <!-- Bild Toolbar -->
  <div class="toolbar" style="display: none;" id="bild">
- <img  src="edit-demo/image.gif" alt="Bild einf&uuml;gen" title="Bild einf&uuml;gen">
+ <img  src="editor/image.gif" alt="Bild einf&uuml;gen" title="Bild einf&uuml;gen">
   <label>Adresse zum Bild:<input id="bildaddr" value="http://"/></label>
    <button type="button" onclick="editor.createImage();">OK</button>&nbsp;
    <button type="button" onclick="toggle('bild');">Abbrechen</button>
@@ -30,7 +30,7 @@
  </div>
  <!-- Link Toolbar -->
  <div class="toolbar" style="display: none;" id="link">
- <img  src="edit-demo/link.gif" alt="Link einf&uuml;gen" title="Link einf&uuml;gen">
+ <img  src="editor/link.gif" alt="Link einf&uuml;gen" title="Link einf&uuml;gen">
   <label>Adresse<input id="url" value="http://"/></label>
    <button type="button" onclick="editor.createLink();">OK</button>&nbsp;
    <button type="button" onclick="toggle('link');">Abbrechen</button>
@@ -38,7 +38,7 @@
  </div>
  <!-- Smily Toolbar -->
  <div class="toolbar" style="display: none;" id="smily">
- <img  src="edit-demo/table.gif" alt="Tabelle einf&uuml;gen" title="Tabelle einf&uuml;gen">
+ <img  src="editor/table.gif" alt="Tabelle einf&uuml;gen" title="Tabelle einf&uuml;gen">
    <img src="Bilder/32x32/emotion_evilgrin.png" width="1em" height="1em" alt="" >
    <img src="Bilder/32x32/emotion_grin.png" width="32" height="32" alt="" >
    <img src="Bilder/32x32/emotion_happy.png" width="32" height="32" alt="" >
@@ -85,17 +85,17 @@
       <option value="6">6</option>
       <option value="7">7</option>
       </select>
-      <div id="bold" class="imagebutton"><img title="Fett" alt="Fett" src="edit-demo/bold.gif"></div>
-      <div id="italic" class="imagebutton"><img title="Kursiv" alt="Kursiv" src="edit-demo/italic.gif"></div>
-      <div id="underline" class="imagebutton"><img title="Unterstrichen" alt="Unterstrichen" src="edit-demo/underline.gif"></div>
-      <div id="forecolor" class="imagebutton"><img title="Schriftfarbe" alt="Schriftfarbe" src="edit-demo/forecolor.gif"></div>
-      <div id="hilitecolor" class="imagebutton"><img title="Hintergrundfarbe" alt="Hintergrundfarbe" src="edit-demo/backcolor.gif"></div>
-      <div id="justifyleft" class="imagebutton"><img title="Linksbuendig" alt="Linksbuendig" src="edit-demo/justifyleft.gif"></div>
-      <div id="justifycenter" class="imagebutton"><img title="Zentriert" alt="Zentriert" src="edit-demo/justifycenter.gif"></div>
-      <div id="justifyright" class="imagebutton"><img title="Rechtsbuendig" alt="Rechtsbuendig" src="edit-demo/justifyright.gif"></div>
-      <div id="insertorderedlist" class="imagebutton"><img title="Nummerierte Liste" alt="Nummerirte Liste" src="edit-demo/orderedlist.gif"></div>
-      <div id="insertunorderedlist" class="imagebutton"><img title="Liste" alt="Liste" src="edit-demo/unorderedlist.gif"></div>
-      <div id="outdent" class="imagebutton"><img title="einzug verkleinern" alt="Einzug verkleinern" src="edit-demo/outdent.gif"></div>
-      <div id="indent" class="imagebutton"><img title="Einzug vergrößern" alt="Einzug vergrößern" src="edit-demo/indent.gif"></div>
+      <div id="bold" class="imagebutton"><img title="Fett" alt="Fett" src="editor/bold.gif"></div>
+      <div id="italic" class="imagebutton"><img title="Kursiv" alt="Kursiv" src="editor/italic.gif"></div>
+      <div id="underline" class="imagebutton"><img title="Unterstrichen" alt="Unterstrichen" src="editor/underline.gif"></div>
+      <div id="forecolor" class="imagebutton"><img title="Schriftfarbe" alt="Schriftfarbe" src="editor/forecolor.gif"></div>
+      <div id="hilitecolor" class="imagebutton"><img title="Hintergrundfarbe" alt="Hintergrundfarbe" src="editor/backcolor.gif"></div>
+      <div id="justifyleft" class="imagebutton"><img title="Linksbuendig" alt="Linksbuendig" src="editor/justifyleft.gif"></div>
+      <div id="justifycenter" class="imagebutton"><img title="Zentriert" alt="Zentriert" src="editor/justifycenter.gif"></div>
+      <div id="justifyright" class="imagebutton"><img title="Rechtsbuendig" alt="Rechtsbuendig" src="editor/justifyright.gif"></div>
+      <div id="insertorderedlist" class="imagebutton"><img title="Nummerierte Liste" alt="Nummerirte Liste" src="editor/orderedlist.gif"></div>
+      <div id="insertunorderedlist" class="imagebutton"><img title="Liste" alt="Liste" src="editor/unorderedlist.gif"></div>
+      <div id="outdent" class="imagebutton"><img title="einzug verkleinern" alt="Einzug verkleinern" src="editor/outdent.gif"></div>
+      <div id="indent" class="imagebutton"><img title="Einzug vergrï¿½ï¿½ern" alt="Einzug vergrï¿½ï¿½ern" src="editor/indent.gif"></div>
 	  <br>
 </div>
