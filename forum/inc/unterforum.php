@@ -16,12 +16,7 @@ $abfrage2 = mysql_query("SELECT * FROM `themen` WHERE forum_id = $_GET[id] LIMIT
 
 /* solang mysql_fetch_assoc() eine Zeile (row) aus der Resource "ziehen" kann ist $row jeweils eine Zeile aus der Datenbank. Und es werden nun einige Elemente des Arrays ausgegeben */
 
-
-?>
-
-Sie sind Hier: <a href="index.php">Foren&uuml;bersicht</a> -
-
-<?php 
+$pfad =  "<a href=\"index.php\">Foren&uuml;bersicht</a> -";
 
 
   //der obere kasten
@@ -29,31 +24,13 @@ Sie sind Hier: <a href="index.php">Foren&uuml;bersicht</a> -
 
 
 while($row = mysql_fetch_assoc($abfrage)) {
-echo "<a href='index.php?seite=unterforum&id=$_GET[id]'>$row[name]</a><br /><br />";
-
-
-echo "<fieldset class='div2'>";
-
-
-
-echo "<legend>$row[name]</legend>";
-
-
-
-echo "<img src=\"$row[bild]\"/>";
-
-
-
-echo "<span>".htmlentities($row['beschreibung'])."</span>";
-
-
-
-echo "</fieldset>";
-
-
-
-
-
+	$pfad .= "<a href='index.php?seite=unterforum&id=$_GET[id]'>$row[name]</a><br /><br />";
+	
+	$content = "<fieldset class='div2'>";
+	$content .= "<legend>$row[name]</legend>";
+	$content .= "<img src=\"$row[bild]\"/>";
+	$content .=  "<span>".htmlentities($row['beschreibung'])."</span>";
+	$content .= "</fieldset>";
 
 
 }
@@ -64,7 +41,7 @@ echo "</fieldset>";
 
 
 
-echo "<br />";
+$content .= "<br />";
 
 
 
@@ -73,12 +50,12 @@ echo "<br />";
 
 
 while($row = mysql_fetch_assoc($abfrage2)) {
-echo "<fieldset class='div2'>";
-echo "<legend>$row[name]</legend>";
-echo "<img src=\"$row[bild]\"/>";
-echo "<a href=\"?seite=thread&id=$row[id]\">";
-echo "$row[name]</a>";
-$anzahl = mysql_query("SELECT * FROM `beitrag` WHERE thema_id = $row[id]"); //rausfinden wievile beiträge es gibt.
+$content .= "<fieldset class='div2'>";
+$content .= "<legend>$row[name]</legend>";
+$content .= "<img src=\"$row[bild]\"/>";
+$content .= "<a href=\"?seite=thread&id=$row[id]\">";
+$content .= "$row[name]</a>";
+$anzahl = mysql_query("SELECT * FROM `beitrag` WHERE thema_id = $row[id]"); //rausfinden wievile beitrï¿½ge es gibt.
 $neuester_beitrag = mysql_query("
 SELECT `benutzer`.`name` AS autor, UNIX_TIMESTAMP( `beitrag`.`zeit` )
 FROM `benutzer`
@@ -91,17 +68,16 @@ LIMIT 0 , 1"
 $beitrag = mysql_fetch_row($neuester_beitrag);
  $beitrag[0]; // zeit
  $beitrag[1]; // Autor
-echo "&nbsp;Anzahl Beitr&auml;ge:&nbsp;".mysql_num_rows($anzahl)."<br>neuester Beitrag am ".strftime("%A, %d. %B. %y - %X",$beitrag[1])." von ".$beitrag[0]."";
+$content .= "&nbsp;Anzahl Beitr&auml;ge:&nbsp;".mysql_num_rows($anzahl)."<br>neuester Beitrag am ".strftime("%A, %d. %B. %y - %X",$beitrag[1])." von ".$beitrag[0]."";
 
 
-echo "</fieldset>"; 
+$content .= "</fieldset>"; 
 
 
 
 }
 
 
-
+$content .= "<button type=\"button\" onclick=\"neues_thema($_GET[id])\">Neues thema erstellen</button>";
 ?>
 
-<button type="button" onclick="neues_thema(<?php echo $_GET['id'] ?>)">Neues thema erstellen</button>

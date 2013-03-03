@@ -11,17 +11,29 @@ if(@$_SESSION['user_online'] == true){
 }
 else{
     ?>
-    <form action="inc/login.php" onsubmit="this.style.cursor = 'wait'; this.abs.disabled = true ;return anmelden()" name="login">
-
-            <label for="benutzername" style="float: left; width: 120px;" >Benutzername:</label>
-
-           <input name="Benutzername" id="benutzername" type="text" style="background-color:transparent" maxlength="25" /><br />
-
-          <label for="password" style="float: left; width: 120px;"> Passwort:</label>
-
-          <input name="Passwort" id="password" type="password"  maxlength="25"><br>
-
-           <button name="abs" type="submit" style="float:right">Login</button></form>
+<form action="inc/login.php"  onsubmit="this.style.cursor = 'wait'; this.submit.disabled = true ;return anmelden()" id = "login_tabelle">
+	<!--action="input_text_tabelle.htm" hääää?-->
+	<table border="0" cellpadding="0" cellspacing="4" align="right">
+		<tr>
+			<td align="left">Vorname:</td>
+			<td>
+			<input name="name" type="text" size="30" maxlength="30">
+			</td>
+			<td>
+			<input type="checkbox" name="Angemeldet_bleiben" value="Angemeldet_bleiben" dissabled>
+			Angemeldet bleiben</td>
+		</tr>
+		<tr>
+			<td align="left">Password:</td>
+			<td>
+			<input name="password" type="password" size="30" maxlength="40">
+			</td>
+			<td>
+			<input type="submit" value=" Anmelden" name="submit">
+			</td>
+		</tr>
+	</table>
+</form>
 <?php
 }
 

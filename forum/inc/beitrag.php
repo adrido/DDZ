@@ -3,7 +3,7 @@
 include("funktionen.php");
 include("dom.php");
 if(isset($_SESSION['user_name'])){
-
+$content = "";
     if(isset($_POST['eintrag'],$_GET['id'],$_GET['modus'])){
     $username = $_SESSION['user_name'];
     $userid = $_SESSION['user_id'];
@@ -19,25 +19,25 @@ if(isset($_SESSION['user_name'])){
     if(isset($sql)){
     mysql_query($sql);
 
-    echo "{";
-    echo "status:200,statusText:'Erfolgreich'";
-    echo "}";    
+   $content .= "{";
+   $content .= "status:200,statusText:'Erfolgreich'";
+   $content .= "}";    
     }
     else{
-    echo "{
+   $content .= "{
     status:500,statusText:'Fehler: sql ist nicht gesetzt'
     }";    
     }
     }
    else{
-    echo "{
+   $content .= "{
     status:500,statusText:'Interner Fehler'
     }";
 
    }
 }
 else {
-    echo"{
+   $content .="{
         status:403,statustext:'du bist nicht eingeloggt!'
     }";
 }

@@ -28,14 +28,13 @@ $forum_id_gelesen = mysql_fetch_array($abfrage3);
 $abfrage4 = mysql_query("SELECT name FROM `foren` WHERE id = $forum_id_gelesen[0] LIMIT 0 ,1");
 $forum_name_gelesen = mysql_fetch_array($abfrage4);
 
-$geschlechter = array("Nicht Angegeben", "Männlich", "Weiblich");
+$geschlechter = array("Nicht Angegeben", "Mï¿½nnlich", "Weiblich");
 
-?>
-Sie sind Hier: <a href="index.php">Foren&uuml;bersicht</a> - 
-<a href="?seite=unterforum&id=<?php echo $forum_id_gelesen[0]; ?>"><?php echo $forum_name_gelesen[0]; ?></a>&nbsp;-&nbsp;
-<a href="?seite=thread&id=<?php echo $_GET['id']; ?>"><?php echo $thema_name_gelesen[0]; ?></a><br />
+$pfad = "<a href=\"index.php\">Foren&uuml;bersicht</a> - ";
+$pfad .="<a href=\"?seite=unterforum&id=$forum_id_gelesen[0];\"> $forum_name_gelesen[0];</a>&nbsp;-&nbsp;";
+$pfad .="<a href=\"?seite=thread&id=$_GET[id]; \">$thema_name_gelesen[0];</a>";
+$content = "";
 
-<?php 
    include("inc/funktionen.php");
    include("inc/seitenzahl_erstellen.php");
 
@@ -58,47 +57,48 @@ ORDER BY `beitrag`.`zeit` ASC ";
 $link = "?seite=thread&id={$_GET['id']}"; 
 
     //anzeige der seitenzahl ende
-$abfrage = adolf($abfrage_o_limit,$count_sql,$link);
+$content .= adolf($abfrage_o_limit,$count_sql,$link);
+$abfrage = $abfrage_o_limit;
 $abfrage = mysql_query($abfrage);
 while($row = mysql_fetch_assoc($abfrage)) {
 //$abfrage = mysql_query("SELECT name FROM `benutzer` WHERE thema_id = $_GET[id] ORDER BY `beitrag`.`zeit` ASC LIMIT 0 , 1");
-?>
-<fieldset class='div2'>
-<legend>
-<a href='?seite=profil&id=$row[autor_id]'><?=$row['autor'] ?></a>
-<?php if(@$_SESSION['user_id']==$row['autor_id'] || @$_SESSION['admin']==true) {
-?>   
-<button onclick='editor.config.actionurl="inc/beitrag.php?modus=update&id=<?=$row['id']?>";editor.create(document.getElementById(<?=$row['id']?>)); this.disabled=true;'>Bearbeiten</button>
-<?php
-}?> 
-<?=i_datum($row['zeit'])?></legend>
-<div class="profil">
-    <img class='profilbild' src='benutzerbilder/<?=$row['autor_id'] ?>.png'>
-    <p>Registriert seit:<?=$row['reg_datum'] ?><br>
-    Beitr&auml;ge:<?=$row['beitraege'] ?><br>
-    <!-- [boolean online/offline]<br> -->
-    <?=$geschlechter[$row['geschlecht']] ?>
-    </p>
-</div>
- 
- <div class='beitrag' id='<?=$row['id']?>'> <?=$row['beitrag']?></div>
- </fieldset>
-<?php 
 
+$content .= "<fieldset class='div2'>";
+$content .= "<legend>";
+$content .= "<a href='?seite=profil&id=$row[autor_id]'>$row[autor]</a>";
+if(@$_SESSION['user_id']==$row['autor_id'] || @$_SESSION['admin']==true) {
+ 
+$content .= "<button onclick='editor.config.actionurl=\"inc/beitrag.php?modus=update&id=$row[id]\";editor.create(document.getElementById($row[id])); this.disabled=true;'>Bearbeiten</button>";
+
+}
+$content .= i_datum($row['zeit']);
+$content .= "</legend>";
+$content .= "<div class=\"profil\">";
+    $content .="<img class='profilbild' src='benutzerbilder/$row[autor_id].png'>";
+    $content .="<p>Registriert seit: $row[reg_datum] <br>";
+    $content .="Beitr&auml;ge:$row[beitraege] <br>";
+    //$content .="<!-- [boolean online/offline]<br> -->";
+    $content .= $geschlechter[$row['geschlecht']] ;
+    $content .="</p>";
+$content .="</div>";
+ 
+ $content.= "<beitrag class='beitrag' id='$row[id]'> $row[beitrag]</beitrag>";
+ $content.= "</fieldset>";
 
 }
 
-?>
 
-<button type="button" onclick="antwort_schreiben(<?php echo $_GET['id']; ?>)">Antworten</button>
-<div id="toolbars">
-<!-- wird Dynamisch eingefügt -->
-</div>
-<div id="editor_footer" style="display:none;" class="toolbar"><button onclick="editor.submit();">OK</button><button onclick="editor.exit()">Abbrechen</button></div>
+$content.= "<button type=\"button\" onclick=\"antwort_schreiben(GET[id];)\">Antworten</button>";
+$content.= "<div id=\"toolbars\">";
+//$content.= "<!-- wird Dynamisch eingefï¿½gt -->";
+$content.= "</div>";
+$content.= "<div id=\"editor_footer\" style=\"display:none;\" class=\"toolbar\"><button onclick=\"editor.submit();\">OK</button><button onclick=\"editor.exit()\">Abbrechen</button></div>";
 
-<script>                 
-zeige("inc/toolbars.inc.html","toolbars","");
-</script>
+$content.= "<script>";
+$content.= "zeige(\"inc/toolbars.inc.html\",\"toolbars\",\"\")";
+$content.= "</script>";
 
-<iframe id="colorpalette" src="edit-demo/colors2.htm" style="visibility: hidden; position: absolute; left: 0px; top: 0px; height:170px; width:250px; border:0px;"></iframe>
- <?php adolf($abfrage_o_limit,$count_sql,$link); ?>
+$content.= "<iframe id=\"colorpalette\" src=\"edit-demo/colors2.htm\" style=\"visibility: hidden; position: absolute; left: 0px; top: 0px; height:170px; width:250px; border:0px;\"></iframe>";
+$content.= adolf($abfrage_o_limit,$count_sql,$link); 
+ 
+ ?>
