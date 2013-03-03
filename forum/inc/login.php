@@ -1,10 +1,10 @@
 <?php /* Diese Daten teilt dir dein Provider mit: */
 @session_start();
 include("funktionen.php");
-if(isset($_POST['Benutzername'],$_POST['pass'])){
+if(isset($_POST['name'],$_POST['password'])){
     
 
-$sql = "SELECT `id`,`name`,`passwort`, admin FROM `benutzer` WHERE `name` = \"$_POST[Benutzername]\" AND `passwort` = \"$_POST[pass]\"";
+$sql = "SELECT `id`,`name`,`passwort`, admin FROM `benutzer` WHERE `name` = \"$_POST[name]\" AND `passwort` = \"$_POST[password]\"";
 
 $result = mysql_query ($sql);  
 
@@ -33,6 +33,6 @@ include('usercontrolle.php');
 }
 }
 else{
-    echo "interner fehler 1";
+    echo "fehler benutzername oder passwort wurde nicht eingegeben";
 }
 ?>

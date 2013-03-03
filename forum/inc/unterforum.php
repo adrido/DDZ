@@ -2,7 +2,7 @@
 
 
 
-include("inc/funktionen.php");
+include("funktionen.php");
 
 
 
@@ -22,7 +22,7 @@ $pfad =  "<a href=\"index.php\">Foren&uuml;bersicht</a> -";
   //der obere kasten
 
 
-
+$content = "";
 while($row = mysql_fetch_assoc($abfrage)) {
 	$pfad .= "<a href='index.php?seite=unterforum&id=$_GET[id]'>$row[name]</a><br /><br />";
 	
