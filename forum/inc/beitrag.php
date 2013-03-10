@@ -11,7 +11,7 @@ $content = "";
     $modus = $_GET['modus'];
     $eintrag = fertigmachen($_POST['eintrag']);
     if($modus=="update"){
-        $sql = "UPDATE `fensta_forum`.`beitrag` SET `beitrag` = '$eintrag' WHERE `beitrag`.`id` =$id;"; 
+        $sql = "UPDATE `beitrag` SET `beitrag` = '$eintrag' WHERE `beitrag`.`id` =$id;"; 
     }
     else if($modus == "newThread"){
         $sql = "INSERT INTO `beitrag` (`id`, `zeit`, `beitrag`, `thema_id`,autor_id) VALUES (NULL, TIMESTAMP(''), '$eintrag', '$id', '$userid')";

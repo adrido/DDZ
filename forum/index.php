@@ -44,11 +44,12 @@ if (!isset($content)) {
 	<head>
 		<title>Forum</title>
 
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="author" content="Johannes">
 		<!--<meta name="editor" content="html-editor phase 5">autsch! bitte einen richtigen editor verwenden der 1. keine solchen sachen reinschreibt. und 2. keine so schlechten vorlagen wie dieße bietet -->
 		<link rel="stylesheet" href="../css/normalize.css" type="text/css">
 		<link rel="stylesheet" href="../css/style.css" type="text/css">
+		<link rel="stylesheet" href="../css/fensterstyle_neu.css" type="text/css">
 		<script type="text/javascript"src="../js/script.js">			
 		</script>
 		<script type="text/javascript"src="../js/ajax.js">			
@@ -62,8 +63,10 @@ if (!isset($content)) {
 		<script src="../AC_RunActiveContent.js" language="javascript"></script><!--language ist veraltet!!!! staddessen type="text/javascript"verwenden!-->
 
 		<!-- Java Script -Slideshow NEU -->
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>-->
 		<!-- Google ist Böse! bitte eine locale version auf dem webserver speichern -->
+		<script type="text/javascript"src="../js/jquery-1.9.1.min.js">			
+		</script>
 		<script type="text/javascript" src="../fadeslideshow.js">
 			/***********************************************
 			 * Ultimate Fade In Slideshow v2.0- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)

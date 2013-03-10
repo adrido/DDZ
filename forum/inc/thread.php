@@ -27,16 +27,25 @@ $forum_name_gelesen = mysql_fetch_array($abfrage4);
 
 $geschlechter = array("Nicht Angegeben", "Männlich", "Weiblich");
 
-$pfad = "<a href=\"index.php\">Foren&uuml;bersicht</a>";
-$pfad .= "<a href=\"?seite=unterforum&id=$forum_id_gelesen[0]\"> $forum_name_gelesen[0];</a>&nbsp;-&nbsp;";
-$pfad .= "<a href=\"?seite=thread&id=$_GET[id]\">$thema_name_gelesen[0];</a>";
+$pfad = "<a href=\"index.php\">Foren&uuml;bersicht</a> &gt; ";
+$pfad .= "<a href=\"?seite=unterforum&id=$forum_id_gelesen[0]\"> $forum_name_gelesen[0]</a>&nbsp; &gt; &nbsp;";
+$pfad .= "<a href=\"?seite=thread&id=$_GET[id]\">$thema_name_gelesen[0]</a>";
 $content = "";
 
 include ("inc/funktionen.php");
 include ("inc/seitenzahl_erstellen.php");
 
 $abfrage_o_limit = "
-SELECT `benutzer`.`name` as autor, beitrag.id, `beitrag`.beitrag ,UNIX_TIMESTAMP( `beitrag`.`zeit` )as zeit,beitrag.autor_id, `benutzer`.`reg_datum`, `count_beitrage`.`beitraege` , benutzer.geschlecht
+SELECT `benutzer`.`name` as autor,
+	`benutzer`.`signatur`,
+	 beitrag.id, 
+	 `beitrag`.beitrag ,
+	 UNIX_TIMESTAMP( `beitrag`.`zeit` )as zeit,
+	 beitrag.autor_id, 
+	 beitrag.zuletzt_bearbeitet,
+	 `benutzer`.`reg_datum`, 
+	 `count_beitrage`.`beitraege` , 
+	 benutzer.geschlecht
 FROM beitrag,`benutzer`,count_beitrage 
 WHERE benutzer.id = beitrag.autor_id 
 AND count_beitrage.benutzer_id = beitrag.autor_id  
@@ -66,7 +75,7 @@ while ($row = mysql_fetch_assoc($abfrage)) {
 		$content .= i_datum($row['zeit']);
 					if (@$_SESSION['user_id'] == $row['autor_id'] || @$_SESSION['admin'] == true) {
 			
-					$content .= "<button onclick='editor.config.actionurl=\"inc/beitrag.php?modus=update&id=$row[id]\";editor.create(document.getElementById($row[id])); this.disabled=true;'>Bearbeiten</button>";
+					$content .= "<button onclick='editor.config.actionurl=\"inc/beitrag.php?modus=update&id=$row[id]\";editor.create(document.getElementById($row[id]));'>Bearbeiten</button>";
 			
 				}
 		$content .= "</div>";//ende des Datum andzeigers
@@ -75,10 +84,10 @@ while ($row = mysql_fetch_assoc($abfrage)) {
 		<tbody>
 		<tr>
 			<td class=\"profil\">
-				<a href='?seite=profil&id=$row[autor_id]'>$row[autor]</a>";
+				<a href='?seite=profil&id=$row[autor_id]'>$row[autor]</a><br>";
 
 				$content .= "
-				<img class='profilbild' src='benutzerbilder/$row[autor_id].png'>
+				<img class='profilbild' src='benutzerbilder/$row[autor_id].png'><br>
 				Registriert seit: $row[reg_datum] <br>
 				Beitr&auml;ge:$row[beitraege] <br>";
 				$content .= $geschlechter[$row['geschlecht']];
@@ -88,16 +97,23 @@ while ($row = mysql_fetch_assoc($abfrage)) {
 			</td>
 			";
 	$content .= "<td><div class='eintrag' id='$row[id]'> $row[beitrag]</div>";
+	if ($row['signatur'] != NULL) {
+		$content .= "<div class='signatur'>$row[signatur]</div>";
+	}
+	
 	$content .= "</td>
 	</tr></tbody>
-	</table>
-</div>";
+	</table>";
+		if ($row['zuletzt_bearbeitet'] != '0000-00-00 00:00:00') {
+		$content .= "<div class='bearbeitet'><img src='../bilder/haken.png'></img> Zuletzt bearbeitet am $row[zuletzt_bearbeitet]</div>";
+	}
+$content .= "</div>";
 
 }
 
-$content .= "<button type=\"button\" onclick=\"antwort_schreiben(GET[id];)\">Antworten</button>";
-$content .= "<div id=\"toolbars\">";
-//$content.= "<!-- wird Dynamisch eingef�gt -->";
+$content .= "<button type=\"button\" onclick=\"antwort_schreiben($_GET[id])\">Antworten</button>";
+$content .= "<div id=\"toolbars\"  style=\"display:none;\">";
+//$content.= "<!-- wird Dynamisch eingefügt -->";
 $content .= "</div>";
 $content .= "<div id=\"editor_footer\" style=\"display:none;\" class=\"toolbar\"><button onclick=\"editor.submit();\">OK</button><button onclick=\"editor.exit()\">Abbrechen</button></div>";
 
@@ -105,7 +121,7 @@ $content .= "<script>";
 $content .= "zeige(\"inc/toolbars.inc.html\",\"toolbars\",\"\")";
 $content .= "</script>";
 
-$content .= "<iframe id=\"colorpalette\" src=\"edit-demo/colors2.htm\" style=\"visibility: hidden; position: absolute; left: 0px; top: 0px; height:170px; width:250px; border:0px;\"></iframe>";
+$content .= "<iframe id=\"colorpalette\" src=\"editor/colors2.htm\" style=\"visibility: hidden; position: absolute; left: 0px; top: 0px; height:170px; width:250px; border:0px;\"></iframe>";
 $content .= adolf($abfrage_o_limit, $count_sql, $link);
 ?>
 

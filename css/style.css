@@ -250,6 +250,40 @@ body {
 	margin-bottom: 50px;
 }
 
+/*Themen Seite*/
+table.themen{
+	width:100%;
+	background-image: url(../bilder/bg_dark.png);
+	background-repeat: repeat-y;
+	background-position: center;
+}
+
+table.themen th{
+	background-color: rgba(0,0,0,0.2);
+	color: #ffda98;
+}
+table.themen td{
+	/*background-color: rgba(0,0,0,0.2)*/
+	border:2px solid rgba(0,0,0,0.2);
+}
+/*Ubersicht Seite*/
+table.foren{
+	width:100%;
+	background-image: url(../bilder/bg_dark.png);
+	background-repeat: repeat-y;
+	background-position: center;
+}
+
+table.foren th{
+	background-color: rgba(0,0,0,0.2);
+	color: #ffda98;
+}
+table.foren td{
+	/*background-color: rgba(0,0,0,0.2)*/
+	border:2px solid rgba(0,0,0,0.2);
+}
+/*Beitraege Seite*/
+
 #beitraege_titel {
 	width: 920px;
 	background-image: url(../bilder/bg_dark.png);
@@ -265,6 +299,9 @@ div.beitrag {
 	background-position: center;
 	margin-bottom:5px;
 	
+}
+div.eintrag{
+	margin:5px;
 }
 div.datum{
 	background-color: rgba(0, 0, 0, 0.2);
@@ -287,8 +324,16 @@ a:visited {
 }
 table.profileintrag{/*tabelle fuer die trennung von profil und eintrag*/
 	width:100%;
-	
+	padding:2px;
 }
+div.signatur {
+    border-top: 3px solid rgba(0, 0, 0, 0.2);
+    padding:2px;
+}
+div.bearbeitet {
+	background-color: rgba(0,0,0,0.2);
+}
+
 /*Editor design*/
 
 #editor_footer{

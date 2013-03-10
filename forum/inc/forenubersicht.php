@@ -10,7 +10,7 @@ $pfad =  "<span>Foren&uuml;bersicht</span> ";
 
 /* solang mysql_fetch_assoc() eine Zeile (row) aus der Resource "ziehen" kann ist $row jeweils eine Zeile aus der Datenbank. Und es werden nun einige Elemente des Arrays ausgegeben */
 
-$content = "<table>";
+$content = "<table class='foren'>";
 $content .= "<tr>";
 $content .= "<th colspan=\"2\">Unterforen</th>";
 $content .= "<th>Letzter Beitrag</th>";
