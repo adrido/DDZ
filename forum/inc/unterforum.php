@@ -42,7 +42,7 @@ while($row = mysql_fetch_assoc($abfrage)) {
 
 
 $content .= "<br /><table class='themen'></tbody>";
-$content .= "<tr><th colspan='2'>Thema</th><th>Autor</th><th>Antworten</th><th>Letzter Beitrag</th></tr>";
+$content .= "<tr><th colspan='2'>Thema</th><th>Autor</th><th>Antworten</th><th>Aufrufe</th><th>Letzter Beitrag</th></tr>";
 
 
 //die Einzelenn Themen:
@@ -51,7 +51,7 @@ $content .= "<tr><th colspan='2'>Thema</th><th>Autor</th><th>Antworten</th><th>L
 
 while($row = mysql_fetch_assoc($abfrage2)) {
 $content .= "<tr>";
-$content .= "<td><img src=\"$row[bild]\"/></td>";
+$content .= "<td><img src='../bilder/symbol.png'></img><img src=\"$row[bild]\"/></td>";
 $content .= "<td>";
 
 $content .= "<a href=\"?seite=thread&id=$row[id]\">";
@@ -82,7 +82,7 @@ $beitrag = mysql_fetch_row($neuester_beitrag);
  $beitrag[0]; // zeit
  $beitrag[1]; // Autor
 
-$content .= "<td>$erster[0]</td><td>".mysql_num_rows($anzahl)."</td><td>".strftime("%A, %d. %B. %y - %X",$beitrag[1])." von ".$beitrag[0]."</td>";
+$content .= "<td>$erster[0]</td><td class='center'>".mysql_num_rows($anzahl)."</td><td class='center'>$row[aufrufe]</td><td class='center'>".strftime("%A, %d. %B. %y - %X",$beitrag[1])." <br> ".$beitrag[0]."</td>";
 
 
 

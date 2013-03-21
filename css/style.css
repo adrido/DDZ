@@ -9,14 +9,6 @@ body {
 	margin: 0 0 8px 0;
 	padding: 0 0 0 0;
 }
-#website {
-	position: absolute;
-	width: 1029px;
-	left: 50%;
-	top: 50px;
-	margin-left: -514.5px;/*hae ? seit wann kann ein bildschirm ein halbes pixel anzeigen? */
-	padding-left: 25px;
-}
 
 #flash {
 	margin: 0 0 0 0;
@@ -24,61 +16,43 @@ body {
 }
 
 #head {
-	padding: 0 0 0 25px;
 	height: 209px;
 	width: 980px;
-	background-image: url(../bilder/Header.jpg);/*gorsss und kleinschreibung beachten!*/
+	background-image: url(../bilder/Header.jpg);
 	background-repeat: no-repeat;
+	margin:auto;
 }
 
 #navi {
 	font-size: 13px;
-	clear: left;
 	width: 980px;
 	min-height: 65px;
 	color: #ffffff;
-	background-image: url(../bilder/Navi.jpg);/*gorsss und kleinschreibung beachten!*/
+	margin:auto;
 }
 
 #end {
-	position: relative;
-	width: 1029px;
-	height: 104px;
-	background-image: url(../bilder/Footer.png);/*gorsss und kleinschreibung beachten!*/
+	width:980px;
+	height: 80px;
+	margin:auto;
+	background-image: url('../bilder/Footer.jpg');/*gorsss und kleinschreibung beachten!*/
 	background-repeat: no-repeat;
-	background-position: 50%;
+	margin-bottom: 30px;
+
 }
 
 #end-credits {
-	display: inline-block;
-	position: relative;
-	margin-top: 0px;
-	width: 980px;
-}
-
-#Gesamtheadnavi {
-	min-height: 759px;
-	width: 1029px;
-	padding: 0 0 0 25px;
-	background-image: url(../bilder/shadow.png);
-	background-repeat: repeat-y;
+	margin:auto;
+    padding: 1px;
+    width: 800px;
 }
 
 #Gesamt {
 	min-height: 759px;
 	width: 1029px;
-	padding: 0 0 0 25px;
-	/*background-image:url(../bilder/shadow.png);*/
 	background-image: url(../bilder/hintergrund_text.png);
 	background-repeat: repeat-y;
-}
-
-#sub-navi {
-	font-family: Arial;
-	float: left;
-	height: 100%;
-	width: 150px;
-	background-color: #bbbbbb;
+	margin: auto;
 }
 
 #main {
@@ -133,7 +107,6 @@ body {
 	font-family: Arial;
 	font-size: 10px;
 	color: #9b9b9b;
-	padding: 0px 60px 0px 110px;
 }
 
 .font_6 {/* kleine schwarze Schrift*/
@@ -176,9 +149,9 @@ body {
 	display: inline-block;
 	margin: 8px 0px 0px 0px;
 	padding: 0px 0px 0px 0px;
-	font-size: 20px;
+	font-size: 22px;
 	line-height: 55px;
-	background-image: url(../bilder/navi-button-normal.png);
+	background-image: url('../bilder/navi-button-normal.png');
 	background-position: ;
 	color: #9d9d9d;
 	text-decoration: none;
@@ -186,10 +159,10 @@ body {
 
 #navi a:hover {
 	color: #c8c8c8;
-	background-image: url(../bilder/navi-button-rollover.png);
+	background-image: url('../bilder/navi-button-rollover.png');
 }
 #navi a:focus, #navi a:active {
-	background-image: url(../bilder/navi-button-klick.png);
+	background-image: url('../bilder/navi-button-klick.png');
 }
 
 /* Bilder anzeigen*/
@@ -222,28 +195,39 @@ body {
 	/*-opera-opacity:0.3; /* Opera */
 	height: 62px;
 	/*width: 920px;*/
-	background-image: url(../bilder/Login_hintergrund.png);
-	background-repeat: no-repeat;
-	background-position: center;
+	background-image: url('../bilder/bg_dark.png');
+	padding: 5px;
 }
 #unter_login {
 	height: 22px;
 	/*width: 920px;*/
-	background-image: url(../bilder/Login_hintergrund_unten.png);
-	background-repeat: no-repeat;
-	background-position: center;
+	background-image: url('../bilder/bg_dark.png');
+	
+		
+}
+#unter_login div.dunkel{
+	background-color: rgba(0, 0, 0, 0.2);
+	height: 22px;
+	padding-left:5px;
 }
 #login_tabelle {
 	float: right;
 	padding-top: 4px;
 }
+
+#login_tabelle input{
+opacity:0.8;
+}
+#login_tabelle td{
+	padding:2px;
+}
 #boardcontent {
 	width: 923px;
-	margin-left: 30px;
+	margin:auto;
 }
 #willkommen {
 
-	background-image: url(../bilder/Willkommen.png);
+	background-image: url('../bilder/bg_dark.png');
 	background-repeat: repeat-y;
 	background-position: center;
 	margin-top: 50px;
@@ -345,4 +329,9 @@ div.bearbeitet {
 .imagebutton {
     display: inline;
     
+}
+
+.center{
+text-align: center;
+
 }

@@ -22,7 +22,7 @@ while($row = mysql_fetch_assoc($abfrage)) {
 
 
 $content .= "<tr>";
-$content .= "<td><!-- bildchen mit stern --></td>";
+$content .= "<td><img src='../bilder/symbol.png'></img></td>";
 
 $content .= "<td><a href=\"?seite=unterforum&id=$row[id]\">";
 
@@ -32,7 +32,7 @@ $content .= "<span>".htmlentities($row['beschreibung'])."</span>";
 
 $content .= "</td>";
 
-$content .= "<td>{{LETZTER EITRAG}}</td>";
+$content .= "<td>{{Titel des unterforums}} <br> von {{autor}} datum</td>";
 
 $content .= "<td>{{ANZAHL THEMEN}}</td>";
 

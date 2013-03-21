@@ -16,16 +16,16 @@ else{
 	<!--action="input_text_tabelle.htm" hääää?-->
 	<table border="0" cellpadding="0" cellspacing="4" align="right">
 		<tr>
-			<td align="left">Vorname:</td>
+			<td align="left"><label for="name">Benutzername:</label></td>
 			<td>
 			<input name="name" type="text" size="20" maxlength="20">
 			</td>
 			<td>
-			<input type="checkbox" name="Angemeldet_bleiben" value="Angemeldet_bleiben" dissabled="dissabled">
+			<input type="checkbox" name="Angemeldet_bleiben" value="Angemeldet_bleiben">
 			Angemeldet bleiben</td>
 		</tr>
 		<tr>
-			<td align="left">Password:</td>
+			<td align="left"><label for="password">Kennwort:</label></td>
 			<td>
 			<input name="password" type="password" size="20" maxlength="20">
 			</td>

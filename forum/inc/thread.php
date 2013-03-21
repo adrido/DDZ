@@ -69,7 +69,7 @@ $abfrage = mysql_query($abfrage);
 while ($row = mysql_fetch_assoc($abfrage)) {
 	$content .=  "
 <div class='beitrag'>
-<div class='datum'><img src='../bilder/ring.png'></img>
+<div class='datum'><img src='../bilder/ring.png'>
 ";
 
 		$content .= i_datum($row['zeit']);
@@ -122,6 +122,6 @@ $content .= "zeige(\"inc/toolbars.inc.html\",\"toolbars\",\"\")";
 $content .= "</script>";
 
 $content .= "<iframe id=\"colorpalette\" src=\"editor/colors2.htm\" style=\"visibility: hidden; position: absolute; left: 0px; top: 0px; height:170px; width:250px; border:0px;\"></iframe>";
-$content .= adolf($abfrage_o_limit, $count_sql, $link);
+//$content .= adolf($abfrage_o_limit, $count_sql, $link);
 ?>
 
